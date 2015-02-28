@@ -1,0 +1,13 @@
+
+
+
+dofile("ui_utils.inc");
+
+function doit()
+	local f = io.popen('../foo.txt', 'w');
+	f:write('hi');
+	f:close();
+	while 1 do
+		statusScreen("Testing...");
+	end
+end

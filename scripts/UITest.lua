@@ -43,6 +43,10 @@ function doit()
 			lsClipboardSet("hi");
 		end
 
+		if lsButtonText(10, 160, z, 100, 0xFFFFFFff, "Play sound") then
+			lsPlaySound("test.wav");
+		end
+
 		lsDoFrame();
 		
 		lsSleep(10); -- Sleep just so we don't eat up all the CPU for no reason

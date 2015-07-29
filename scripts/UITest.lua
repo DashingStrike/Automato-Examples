@@ -27,7 +27,7 @@ function doit()
 		
 		dropdown_cur_value = lsDropdown("UITestDropDown", 10, 50, z, 100, dropdown_cur_value, dropdown_values);
 
-		if lsButtonText(10, 100, z, 100, 0xFFFFFFff, "Paste") then
+		if lsButtonText(10, 100, z, 100, 0xFFFFFFff, "(P)aste") or lsKeyDownHit("p") then
 			from_clipboard = lsClipboardGet();
 		end
 		if from_clipboard then

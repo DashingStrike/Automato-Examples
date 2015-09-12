@@ -35,7 +35,7 @@ function doit()
 			lsScrollAreaBegin("clipboard_display", 115, 100, z, w, lsScreenY - 100 - 40);
 			local sub_scale = 0.7;
 			w = w - 24; -- make room for the scroll bar
-			local h = lsPrintWrapped(0, 0, z, w, sub_scale, sub_scale, 0x808080ff, from_clipboard);
+			local h = lsPrintWrapped(0, 0, z+1, w, sub_scale, sub_scale, 0x808080ff, from_clipboard);
 			lsScrollAreaEnd(h);
 		end
 

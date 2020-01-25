@@ -6,8 +6,8 @@
 dofile("screen_reader_common.inc");
 dofile("ui_utils.inc");
 
-dropdown_values = {"Apple", "Banana", "Crack"};
-dropdown_cur_value = 1;
+local dropdown_values = {"Apple", "Banana", "Crack"};
+local dropdown_cur_value = 1;
 
 function doit()
 	local scale = 1.0;
@@ -18,12 +18,15 @@ function doit()
 
 	local from_clipboard = "Clipboard text pasted here";
 	
+	local hsv = lsRGBAtoHSV(0xFF0000ff);
+	
 	-- Display the value read from the edit box
 	while not lsButtonText(lsScreenX - 110, lsScreenY - 30, z, 100, 0xFFFFFFff, "Done") do
 		-- Put these everywhere to make sure we don't lock up with no easy way to escape!
 		checkBreak();
 
-		lsPrintWrapped(10, 10, z, lsScreenX - 20, scale, scale, 0x7F00FFff, "You entered '" .. value .. "'");
+		hsv[0] = (hsv[0] + 2) % 360;
+		lsPrintWrapped(10, 10, z, lsScreenX - 20, scale, scale, lsHSVtoRGBA(hsv[0], hsv[1], hsv[2]), "You entered '" .. value .. "'");
 		
 		dropdown_cur_value = lsDropdown("UITestDropDown", 10, 50, z, 100, dropdown_cur_value, dropdown_values);
 
